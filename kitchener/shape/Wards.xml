@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+    <idinfo>
+        <citation>
+            <citeinfo>
+                <title>Wards</title>
+            </citeinfo>
+        </citation>
+        <descript>
+            <abstract/>
+            <purpose>Wards (Updated: Weekly 01-Oct-2019 10:20) Summary: Ward Boundaries for the City of Kitchener.</purpose>
+        </descript>
+        <keywords>
+            <theme>
+                <themekt>None</themekt>
+                <themekey>Planning</themekey>
+                <themekey>Base</themekey>
+                <themekey>Data</themekey>
+                <themekey>Basemap</themekey>
+                <themekey>Community</themekey>
+                <themekey>Boundaries</themekey>
+                <themekey>City</themekey>
+                <themekey>of</themekey>
+                <themekey>Kitchener</themekey>
+                <themekey>Kitchener</themekey>
+                <themekey>Open</themekey>
+                <themekey>Data</themekey>
+            </theme>
+        </keywords>
+        <accconst>None</accconst>
+        <useconst/>
+        <datacred>City of Kitchener - TIS - GeoSpatial Data and Analytics</datacred>
+    </idinfo>
+    <metainfo>
+        <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+        <mettc>local time</mettc>
+    </metainfo>
+</metadata>
