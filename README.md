@@ -22,4 +22,20 @@
 <li>Gmaps (Connecting to the google maps API)</li>
 <li>Shapely(A Library for working with geo data) &nbsp;</li>
 </ul>
+<p>Key Findings:</p>
+<ul>
+<li>Our users are predominantly male.</li>
+<li>We have over a 160,000 subscribers and over 40,000 customers.</li>
+<li>Our most popular start stations vs least popular start stations differ vastly.</li>
+<li>There are areas and cities where the program is unavailable.</li>
+<li>There is a station in Canada based on the data</li>
+</ul>
+<p>More Questions:</p>
+<ul>
+<li>How can we gain more female subscribers?</li>
+<li>Can we turn our customers into subscribers?</li>
+<li>Are the low traffic stations viable?</li>
+<li>How do we add more stations in high traffic areas, in the cities that the bike share program is unavailable?</li>
+<li>Why is there a station in Canada?</li>
+</ul>
 <p>&nbsp;</p>
