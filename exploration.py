@@ -3,7 +3,7 @@
 
 # ## Exploratory Data Visualization
 
-# In[73]:
+# In[7]:
 
 
 import sqlite3
@@ -19,7 +19,7 @@ import gmaps
 
 # ### Using SQL Querying & Data Storage
 
-# In[74]:
+# In[8]:
 
 
 #A script to create and import a .csv into sqlite3
@@ -39,7 +39,7 @@ con.commit()'''
 
 # <p>Let&rsquo;s check all of our data run a query and see if we have any duplicated user ID&rsquo;s</p>
 
-# In[75]:
+# In[9]:
 
 
 #Query all of our data
@@ -48,7 +48,7 @@ df = sql.read_sql('SELECT * from bike_share', con)
 df
 
 
-# In[76]:
+# In[10]:
 
 
 #Check distinct ID
@@ -59,21 +59,21 @@ dupes
 
 # After doing a check we know there are no duplicated records both queries match (210563) rows
 
-# In[77]:
+# In[11]:
 
 
 #Checking our data types
 df.dtypes
 
 
-# In[78]:
+# In[12]:
 
 
 #Check the shape of the data
 df.shape
 
 
-# In[79]:
+# In[13]:
 
 
 #Fix the timestamp issue when converting to pandas.
@@ -84,7 +84,7 @@ df.dtypes
 
 # <p>Run a query where birth_year is not null I want to explore the data based on gender.</p>
 
-# In[80]:
+# In[14]:
 
 
 #Query the data where birth_year not null
@@ -95,7 +95,7 @@ birth
 # <p><strong>Question:</strong></p>
 # <p>What genders are using the bike share program most?</p>
 
-# In[81]:
+# In[15]:
 
 
 #Query our data and store it into a pandas dataframe
@@ -103,7 +103,7 @@ gender = sql.read_sql('SELECT member_gender, COUNT(member_gender) as count FROM 
 gender
 
 
-# In[82]:
+# In[16]:
 
 
 #create our bar chart and save it as a function
@@ -134,7 +134,7 @@ sex()
 # <p><strong>Question:</strong></p>
 # <p>How many subscribed users do we have vs customers?</p>
 
-# In[83]:
+# In[17]:
 
 
 #Query our data and store it into a pandas dataframe
@@ -142,7 +142,7 @@ user = sql.read_sql('SELECT user_type, COUNT(user_type) as count FROM bike_share
 user
 
 
-# In[84]:
+# In[18]:
 
 
 #create our bar chart and save it as a function.
@@ -174,7 +174,7 @@ users()
 # <p><strong>Question:</strong></p>
 # <p>What are the top 20 bikes are being used the most?</p>
 
-# In[85]:
+# In[19]:
 
 
 #Query our data and store it into a pandas dataframe
@@ -183,7 +183,7 @@ pop_bike20 = pop_bike.head(20)
 pop_bike20
 
 
-# In[86]:
+# In[20]:
 
 
 #create our bar chart
@@ -210,7 +210,7 @@ plt.margins(0.03)
 
 # <p><strong>What other visuals are we able to extract from our data?</strong></p>
 
-# In[87]:
+# In[21]:
 
 
 #Call our dataframe
@@ -219,14 +219,14 @@ df.head()
 
 # Let’s make some histograms and scatter plots for areas of interest.
 
-# In[88]:
+# In[22]:
 
 
 #Age group using the bike share program
 birth.hist(column='member_birth_year');
 
 
-# In[89]:
+# In[23]:
 
 
 #Age group using the bike share program
@@ -240,7 +240,7 @@ birth.plot(kind='scatter', x='member_birth_year', y='duration_sec');
 # <p><strong>Question:</strong></p>
 # <p>What bikes are being used this most?</p>
 
-# In[90]:
+# In[24]:
 
 
 #Which bikes are being used the most?
@@ -253,7 +253,7 @@ df.hist(column='bike_id');
 # <p><strong>Question:</strong></p>
 # <p>What is the relationship between bike_id and duration_sec?</p>
 
-# In[91]:
+# In[25]:
 
 
 #How long are bikes being used?
@@ -266,7 +266,7 @@ df.plot(kind='scatter', x='bike_id', y='duration_sec');
 # <p><strong>Question:</strong></p>
 # <p>Which start stations are being used the most?</p>
 
-# In[92]:
+# In[26]:
 
 
 #What beginning stations are popular?
@@ -282,7 +282,7 @@ df.hist(column='start_station_id');
 # <p><strong>Question:</strong></p>
 # <p>What is the relationship between our start stations and birth year?</p>
 
-# In[93]:
+# In[27]:
 
 
 #Start station vs member birth year
@@ -295,7 +295,7 @@ birth.plot(kind='scatter', x='start_station_id', y='member_birth_year');
 # <p><strong>Question:</strong></p>
 # <p>Which end stations are being used the most?</p>
 
-# In[94]:
+# In[28]:
 
 
 #End station hist
@@ -312,7 +312,7 @@ df.hist(column='end_station_id');
 # <li>What are the most popular start stations top 5?</li>
 # <li>What are the least popular start stations top 5?</li>
 
-# In[95]:
+# In[29]:
 
 
 #Query our data and store it into a pandas dataframe
@@ -321,7 +321,7 @@ pop_station = station.head(5)
 unpop_station = station.tail(5)
 
 
-# In[96]:
+# In[30]:
 
 
 #popular stations
@@ -329,7 +329,7 @@ bar_pop_station = pop_station
 bar_pop_station
 
 
-# In[97]:
+# In[31]:
 
 
 #unpopular stations
@@ -337,7 +337,7 @@ bar_unpop_station = unpop_station
 bar_unpop_station
 
 
-# In[98]:
+# In[32]:
 
 
 def bar_pop_start_station():
@@ -363,7 +363,7 @@ def bar_pop_start_station():
 bar_pop_start_station()
 
 
-# In[99]:
+# In[33]:
 
 
 def bar_least_pop():
@@ -393,36 +393,36 @@ bar_least_pop()
 # <li>We notice there is a huge difference in usage between are most popular and least popular stations.</li>
 # </ul>
 
-# In[100]:
+# In[34]:
 
 
 #View our data.
 df.head()
 
 
-# In[101]:
+# In[35]:
 
 
 #make a box plot I am not really interested in this data
 df.boxplot(by ='bike_share_for_all_trip', column =['bike_id'], grid = False) ;
 
 
-# In[102]:
+# In[36]:
 
 
 #Let's Check what other variables we can work with.
 df.describe()
 
 
-# In[103]:
+# In[96]:
 
 
 #creating a matrix to give us some ideas of what we could potentially plot.
-#pd.plotting.scatter_matrix(df, figsize=(16,16));
+pd.plotting.scatter_matrix(df, figsize=(16,16));
 #df.iloc[:, 0:2]
 
 
-# In[104]:
+# In[37]:
 
 
 #pd.plotting.scatter_matrix(df, alpha=0.2, figsize=(16, 16), diagonal='kde');
@@ -443,7 +443,7 @@ df.describe()
 
 # ### Let’s take a look at where our bike share locations are on a map.
 
-# In[105]:
+# In[38]:
 
 
 #Query of our data
@@ -454,14 +454,14 @@ locations_df
 
 # <p>There is a way to use shape files for geographic plots. I sourced a few from open data resources.</p>
 
-# In[106]:
+# In[39]:
 
 
 #Read in our shape file
 bay_area = gdp.read_file('shape/s7jc7v.shp')
 
 
-# In[107]:
+# In[40]:
 
 
 #Plot the shape file
@@ -469,7 +469,7 @@ fig,ax = plt.subplots(figsize = (15,15))
 bay_area.plot(ax = ax);
 
 
-# In[108]:
+# In[41]:
 
 
 #read in some training data run a loop to Populate another column for our geometry library. 
@@ -483,7 +483,7 @@ locations_df = gdp.GeoDataFrame(locations_df,#Specify our data
 locations_df
 
 
-# In[109]:
+# In[42]:
 
 
 #Plot our data
@@ -500,7 +500,7 @@ locations_df.plot(ax = ax, markersize = 20, color = "green", marker = "o", label
 # <li>We'll filter out coordinates that are above -120</li>
 # </ul>
 
-# In[110]:
+# In[43]:
 
 
 #Query our data and filter out undesired data
@@ -509,7 +509,7 @@ locations_df = sql.read_sql('SELECT DISTINCT start_station_id, start_station_lon
 locations_df
 
 
-# In[111]:
+# In[44]:
 
 
 #read in some training data run a loop to Populate another column for our geometry library. 
@@ -523,7 +523,7 @@ locations_df = gdp.GeoDataFrame(locations_df,#Specify our data
 locations_df
 
 
-# In[112]:
+# In[45]:
 
 
 def bay_area_map():
@@ -549,7 +549,7 @@ bay_area_map()
 # </ul>
 # <p>&nbsp;</p>
 
-# In[113]:
+# In[46]:
 
 
 #Query our data for coordinates that fall within San Francisco's range
@@ -558,14 +558,14 @@ sanfran_df = sql.read_sql('SELECT DISTINCT start_station_id, start_station_longi
 sanfran_df
 
 
-# In[114]:
+# In[47]:
 
 
 #Import our shape file
 sanfran_map = gdp.read_file('shape/sanfran_city/geo_export_b896081a-685e-4878-a962-38b650695c1a.shp')
 
 
-# In[115]:
+# In[48]:
 
 
 #Plot our shape file
@@ -573,7 +573,7 @@ fig,ax = plt.subplots(figsize = (15,15))
 sanfran_map.plot(ax = ax);
 
 
-# In[116]:
+# In[49]:
 
 
 #read in some training data run a loop to Populate another column for our geometry library. 
@@ -587,7 +587,7 @@ sanfran_df = gdp.GeoDataFrame(sanfran_df,#Specify our data
 sanfran_df
 
 
-# In[117]:
+# In[50]:
 
 
 def sanfran_shape():
@@ -617,7 +617,7 @@ sanfran_shape()
 # <li>What does Oakland look like when you plot the stations?</li>
 # </ul>
 
-# In[118]:
+# In[51]:
 
 
 #Query our data coordinates within Oakland boundaries.
@@ -626,14 +626,14 @@ oakland_df = sql.read_sql('SELECT DISTINCT start_station_id, start_station_longi
 oakland_df
 
 
-# In[119]:
+# In[52]:
 
 
 #Import our shape file
 streetmap = gdp.read_file('shape/oakland/geo_export_a8aad267-4123-4b77-b2b3-58eea2d8c754.shp')
 
 
-# In[120]:
+# In[53]:
 
 
 #Plot our shape file
@@ -641,7 +641,7 @@ fig,ax = plt.subplots(figsize = (15,15))
 streetmap.plot(ax = ax);
 
 
-# In[121]:
+# In[54]:
 
 
 #read in some training data run a loop to Populate another column for our geometry library. 
@@ -655,7 +655,7 @@ oakland_df = gdp.GeoDataFrame(oakland_df,#Specify our data
 oakland_df
 
 
-# In[122]:
+# In[55]:
 
 
 #Plot our data
@@ -675,7 +675,7 @@ oakland_df.plot(ax = ax, markersize = 20, color = "green", marker = "o", label =
 
 # ### Fortunately there is a library that connects with the Google Maps API.
 
-# In[123]:
+# In[56]:
 
 
 #Query our data for Oakland and surrounding area
@@ -684,7 +684,7 @@ oakland_df = sql.read_sql('SELECT distinct start_station_id, start_station_latit
 oakland_df
 
 
-# In[124]:
+# In[57]:
 
 
 #Slice the geo data
@@ -692,11 +692,11 @@ oakland_df_geo = oakland_df[['start_station_latitude','start_station_longitude']
 oakland_df_geo
 
 
-# In[125]:
+# In[58]:
 
 
 #use gmaps with my api key to create a map.
-gmaps.configure(api_key='AIzaSyCstm00Tu0M1HJeMANTwnvyj0nQYHOgyhE')
+gmaps.configure(api_key='secret')
 
 #plot our data
 locations = oakland_df_geo
@@ -718,7 +718,7 @@ fig
 # <li>Where are the least popular start stations? (Top 10)</li>
 # </ul>
 
-# In[126]:
+# In[59]:
 
 
 #Query our data to find the most popular and least popular start stations.
@@ -727,14 +727,14 @@ pop_station = station.head(10)
 unpop_station = station.tail(10)
 
 
-# In[127]:
+# In[60]:
 
 
 #top 10 popular stations
 pop_station
 
 
-# In[128]:
+# In[61]:
 
 
 #Slice the data
@@ -742,11 +742,11 @@ pop_station_geo = pop_station[['start_station_latitude','start_station_longitude
 pop_station_geo
 
 
-# In[129]:
+# In[62]:
 
 
 #use gmaps with my api key to create a map.
-gmaps.configure(api_key='AIzaSyCstm00Tu0M1HJeMANTwnvyj0nQYHOgyhE')
+gmaps.configure(api_key='secret')
 
 locations = pop_station_geo
 fig = gmaps.figure(map_type='ROADMAP')
@@ -766,7 +766,7 @@ fig
 # <li>What start station is used the most according to our data?</li>
 # </ul>
 
-# In[130]:
+# In[63]:
 
 
 #Slice our number one start station.
@@ -774,11 +774,11 @@ most_pop = pop_station_geo[0:1]
 most_pop
 
 
-# In[131]:
+# In[64]:
 
 
 #use gmaps with my api key to create a map.
-gmaps.configure(api_key='AIzaSyCstm00Tu0M1HJeMANTwnvyj0nQYHOgyhE')
+gmaps.configure(api_key='secret')
 
 locations = most_pop
 fig = gmaps.figure(map_type='SATELLITE')
@@ -799,18 +799,18 @@ fig
 # <li>What is the least popular start station?</li>
 # </ul>
 
-# In[132]:
+# In[65]:
 
 
 unpop_station_geo = unpop_station[['start_station_latitude','start_station_longitude']]
 unpop_station_geo
 
 
-# In[133]:
+# In[66]:
 
 
 #use gmaps with my api key to create a map.
-gmaps.configure(api_key='AIzaSyCstm00Tu0M1HJeMANTwnvyj0nQYHOgyhE')
+gmaps.configure(api_key='secret')
 
 locations = unpop_station_geo
 fig = gmaps.figure(map_type='ROADMAP')
@@ -819,7 +819,7 @@ fig.add_layer(scatter_locations)
 fig
 
 
-# In[134]:
+# In[67]:
 
 
 #Slice our least popular start station
@@ -827,11 +827,11 @@ least_pop = unpop_station_geo[9:10]
 least_pop
 
 
-# In[135]:
+# In[68]:
 
 
 #use gmaps with my api key to create a map.
-gmaps.configure(api_key='AIzaSyCstm00Tu0M1HJeMANTwnvyj0nQYHOgyhE')
+gmaps.configure(api_key='secret')
 
 locations = least_pop
 fig = gmaps.figure(map_type='ROADMAP')
@@ -849,7 +849,7 @@ fig
 
 # ## That’s odd why is there a station in Canada?
 
-# In[136]:
+# In[69]:
 
 
 #Slice our station located in canada
@@ -857,11 +857,11 @@ mont = unpop_station_geo[8:9]
 mont
 
 
-# In[137]:
+# In[70]:
 
 
 #use gmaps with my api key to create a map.
-gmaps.configure(api_key='AIzaSyCstm00Tu0M1HJeMANTwnvyj0nQYHOgyhE')
+gmaps.configure(api_key='secret')
 
 locations = mont
 fig = gmaps.figure(map_type='ROADMAP')
