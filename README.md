@@ -35,7 +35,7 @@
 <li>How can we gain more female subscribers?</li>
 <li>Can we turn our customers into subscribers?</li>
 <li>Are the low traffic stations viable?</li>
-<li>How do we add more stations in high traffic areas, in the cities that the bike share program is unavailable?</li>
+<li>How do we add more stations in high traffic areas for cities where the bike share program is unavailable?</li>
 <li>Why is there a station in Canada?</li>
 </ul>
 <p>&nbsp;</p>
