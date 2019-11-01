@@ -3,7 +3,7 @@
 
 # ## Exploratory Data Visualization
 
-# In[7]:
+# In[3]:
 
 
 import sqlite3
@@ -48,7 +48,7 @@ df = sql.read_sql('SELECT * from bike_share', con)
 df
 
 
-# In[10]:
+# In[5]:
 
 
 #Check distinct ID
@@ -312,7 +312,7 @@ df.hist(column='end_station_id');
 # <li>What are the most popular start stations top 5?</li>
 # <li>What are the least popular start stations top 5?</li>
 
-# In[29]:
+# In[6]:
 
 
 #Query our data and store it into a pandas dataframe
@@ -321,7 +321,7 @@ pop_station = station.head(5)
 unpop_station = station.tail(5)
 
 
-# In[30]:
+# In[7]:
 
 
 #popular stations
@@ -329,7 +329,7 @@ bar_pop_station = pop_station
 bar_pop_station
 
 
-# In[31]:
+# In[8]:
 
 
 #unpopular stations
@@ -337,7 +337,7 @@ bar_unpop_station = unpop_station
 bar_unpop_station
 
 
-# In[32]:
+# In[17]:
 
 
 def bar_pop_start_station():
@@ -352,18 +352,18 @@ def bar_pop_start_station():
 
     # Plot the total crashes
     sns.set_color_codes("pastel")
-    sns.barplot(x="start_station_name", y="count", data=bar_pop_station, label="Total", color="#5F9C46")
+    sns.barplot(x="count", y="start_station_name", data=bar_pop_station, label="Total", color="#5F9C46")
 
-    plt.xlabel('')
-    plt.ylabel('Frequency',rotation=0,fontsize=16,labelpad=60)
+    plt.xlabel('Frequency',fontsize=16,labelpad=30)
+    plt.ylabel('Station',rotation=0,fontsize=16,labelpad=60)
     plt.title("Most Popular Starting Stations",fontsize=15,pad=20)
-    plt.xticks(rotation=-70,fontsize=11.5,ha='left');
+    plt.xticks(fontsize=11.5,ha='left');
     return plt.show()
 
 bar_pop_start_station()
 
 
-# In[33]:
+# In[14]:
 
 
 def bar_least_pop():
@@ -378,12 +378,12 @@ def bar_least_pop():
     
     # Plot the total crashes
     sns.set_color_codes("pastel")
-    sns.barplot(x="start_station_name", y="count", data=bar_unpop_station, label="Total", color="#F54E3A")
+    sns.barplot(x="count", y="start_station_name", data=bar_unpop_station, label="Total", color="#F54E3A")
     
-    plt.xlabel('')
-    plt.ylabel('Frequency',rotation=0,fontsize=16,labelpad=60)
+    plt.xlabel('Frequency',fontsize=16,labelpad=30)
+    plt.ylabel('Station',rotation=0,fontsize=16,labelpad=60)
     plt.title("Least Popular Starting Stations",fontsize=15,pad=20)
-    plt.xticks(rotation=-50,fontsize=13,ha='left')
+    plt.xticks(fontsize=13,ha='left')
     return plt.show();
 bar_least_pop()
 
